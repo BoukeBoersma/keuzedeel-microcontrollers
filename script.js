@@ -319,7 +319,7 @@ D1‑K1‑W3 – Testen
 • Kunstinstallaties  
 • Overridesystemen in machines  
   `,
-  codeUrl: "project code/project-3code/project-3code.ino"
+codeUrl: "project%20code/project-3code/project-3.ino"
 });
 
 projects.push({
