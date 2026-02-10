@@ -1416,7 +1416,6 @@ Onderwijs:
 • RFID‑technologie in praktijk  
   `,
   codeUrl: "project code/project-10code/project-10code.ino"
-  codeUrl: "project code/project-10code/project-10code.ino"
 
 });
 
