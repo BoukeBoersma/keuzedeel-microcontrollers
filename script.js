@@ -1415,7 +1415,7 @@ Onderwijs:
 • Voorbeeld van multi‑microcontroller communicatie  
 • RFID‑technologie in praktijk  
   `,
-  codeUrl: "project code/project-10code/project-10code.ino"
+  codeUrl: [ "project%20code/project-10code/project-10A.ino", "project%20code/project-10code/project-10B.ino" ]
 
 });
 
