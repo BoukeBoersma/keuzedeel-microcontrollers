@@ -1,6 +1,5 @@
 // Projecten automatisch genereren
 const projects = [];
-const projects = [];
 
 // Helper: YouTube URL → embed URL
 function convertToEmbed(url) {
