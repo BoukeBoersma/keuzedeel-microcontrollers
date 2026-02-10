@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Keuzedeel Microcontrollers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Portfolio Keuzedeel Microcontrollers</h1>
+
+      <p class="intro-text">
+        Tijdens het keuzedeel Microcontrollers heb ik gewerkt aan tien verschillende projecten waarin creativiteit, techniek en probleemoplossend denken centraal staan. 
+        Voor elk project heb ik de werking vastgelegd in een korte video, aangevuld met documentatie en de volledige code. 
+        Op deze website presenteer ik mijn resultaten: een overzicht van mijn leerproces, de keuzes die ik heb gemaakt en de oplossingen die ik heb gebouwd. 
+        Dit portfolio vormt daarmee mijn eindpresentatie van het keuzedeel en laat zien hoe ik microcontrollers heb toegepast in praktijkgerichte opdrachten.
+      </p>
+    </header>
+
+    <section id="projects" class="projects-grid">
+      <!-- Projectkaarten worden hier via JavaScript ingevuld -->
+    </section>
+  </div>
+
+  <!-- Popup / Modal -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+
+      <div class="modal-video">
+        <video id="modalVideo" controls></video>
+      </div>
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+
+      <a id="modalCodeLink" class="code-link" target="_blank">Bekijk de code</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
