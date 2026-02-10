@@ -1,10 +1,26 @@
 // Projecten automatisch genereren
 const projects = [];
+const projects = [];
+
+// Helper: YouTube URL → embed URL
+function convertToEmbed(url) {
+  if (!url.includes("youtu")) return url;
+
+  // Shorts → embed
+  if (url.includes("shorts")) {
+    const id = url.split("/shorts/")[1].split("?")[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  // Normale YouTube links
+  const id = url.split("v=")[1] || url.split("/").pop();
+  return `https://www.youtube.com/embed/${id}`;
+}
 
 // PROJECT 1 MET VOLLEDIGE INHOUD
 projects.push({
   title: "LED‑Signaleringssysteem met Schakelaar",
-  videoSrc: "filmjes/project-1.mp4",
+videoSrc: "https://www.youtube.com/embed/nOrnRGMs_LI",
   description: "In dit project bouwde ik een LED‑signaleringssysteem dat reageert op een schakelaar. Het systeem toont basisprincipes van digitale input, output en logische aansturing met een Arduino.",
   fullText: `
 1. Inleiding
@@ -83,7 +99,7 @@ Dit systeem kan dienen als basis voor signaleringssystemen zoals:
 });
 projects.push({
   title: "Arduino Stoplichtsysteem met Schakelaar",
-  videoSrc: "filmjes/project-2.mp4",
+  videoSrc: "https://www.youtube.com/embed/A4PdyQNBvAY",
   description: "In dit project heb ik een realistisch stoplichtsysteem gebouwd met een Arduino. Met een schakelaar wordt de verkeerslichtvolgorde gestart, inclusief correcte timing en LED‑aansturing.",
   fullText: `
 1. Inleiding
@@ -175,7 +191,7 @@ D1‑K1‑W3 – Testen
 
 projects.push({
   title: "RGB‑Lichtsysteem met Fotoresistors en Schakelaar",
-  videoSrc: "filmjes/project-3.mp4",
+videoSrc: "https://www.youtube.com/embed/k0aUFM6feOU",
   description: "In dit project stuur ik een RGB‑LED aan met drie fotoresistors. De LED‑kleur verandert op basis van lichtsterkte, en een schakelaar forceert de LED naar blauw.",
   fullText: `
 1. Inleiding
@@ -309,7 +325,7 @@ D1‑K1‑W3 – Testen
 
 projects.push({
   title: "Keypad Toegangssysteem met LED‑Feedback en Resetfunctie",
-  videoSrc: "filmjes/project-4.mp4",
+videoSrc: "https://www.youtube.com/embed/LQRr-13Hy2U",
   description: "In dit project bouwde ik een toegangssysteem met een keypad. De gebruiker voert een viercijferige code in, krijgt LED‑feedback en kan met de *‑toets de invoer direct resetten.",
   fullText: `
 1. Inleiding
@@ -455,7 +471,7 @@ Consumententoepassingen:
 
 projects.push({
   title: "RFID‑Toegangssysteem met LED‑Feedback",
-  videoSrc: "filmjes/project-5.mp4",
+videoSrc: "https://www.youtube.com/embed/E_bbASFlh4M",
   description: "In dit project lees ik een RFID‑pasje uit en controleer ik of de ID overeenkomt met een ingestelde toegangs‑ID. Het systeem geeft LED‑feedback voor correcte en foutieve pasjes.",
   fullText: `
 1. Inleiding
@@ -622,7 +638,7 @@ Registratie:
 
 projects.push({
   title: "LCD‑Groetsysteem met Schakelaar",
-  videoSrc: "filmjes/project-6.mp4",
+videoSrc: "https://www.youtube.com/embed/aXy5TCMMUQw",
   description: "In dit project laat ik een LCD-scherm een boodschap tonen wanneer een schakelaar wordt ingedrukt. De tekst op het display verandert van standaardtekst naar “Arduino groet je”.",
   fullText: `
 1. Inleiding
@@ -758,7 +774,7 @@ Onderwijs:
 
 projects.push({
   title: "Interactieve JA/NEE‑Quiz met LCD en LED‑Feedback",
-  videoSrc: "filmjes/project-7.mp4",
+videoSrc: "https://www.youtube.com/embed/9zHisHGK-Xk",
   description: "In dit project bouwde ik een interactieve JA/NEE‑quiz met een LCD‑scherm, twee knoppen en vier LED’s. De gebruiker beantwoordt vijf vragen en krijgt directe feedback.",
   fullText: `
 1. Inleiding
@@ -913,7 +929,7 @@ Industrie:
 
 projects.push({
   title: "Arduino Rekenmachine met Keypad en LCD‑Display",
-  videoSrc: "filmjes/project-8.mp4",
+videoSrc: "https://www.youtube.com/embed/eEfYT7pkZLE",
   description: "In dit project bouwde ik een rekenmachine met een keypad en een LCD‑scherm. De gebruiker voert cijfers en operators in, en de Arduino berekent de uitkomst.",
   fullText: `
 1. Inleiding
@@ -1065,7 +1081,7 @@ Consumententoepassingen:
 
 projects.push({
   title: "RFID + Keypad Tweestaps Toegangssysteem",
-  videoSrc: "filmjes/project-9.mp4",
+videoSrc: "https://www.youtube.com/embed/62d-qzFkhAY",
   description: "In dit project combineer ik RFID, keypad-invoer en een LCD-scherm tot een tweestaps beveiligingssysteem. Eerst moet het pasje kloppen, daarna de code.",
   fullText: `
 1. Inleiding
@@ -1229,7 +1245,7 @@ Registratie:
 
 projects.push({
   title: "RFID + Keypad Toegangssysteem met Twee Arduino’s",
-  videoSrc: "filmjes/project-10.mp4",
+videoSrc: "https://www.youtube.com/embed/39avyBYPrR8",
   description: "In dit project bouwde ik een volledig tweestaps toegangssysteem met RFID, keypad, LCD en signaallampen. Twee Arduino’s werken samen om toegang te verlenen.",
   fullText: `
 1. Inleiding
@@ -1401,10 +1417,15 @@ Onderwijs:
 • RFID‑technologie in praktijk  
   `,
   codeUrl: "project code/project-10code/project-10code.ino"
+  codeUrl: "project code/project-10code/project-10code.ino"
+
 });
 
 
-// MODAL LOGICA
+// ------------------------------
+// GENEREREN VAN PROJECTKAARTEN
+// ------------------------------
+
 const projectsContainer = document.getElementById("projects");
 
 const modal = document.getElementById("projectModal");
@@ -1414,6 +1435,21 @@ const modalDescription = document.getElementById("modalDescription");
 const modalCodeLink = document.getElementById("modalCodeLink");
 const closeBtn = document.querySelector(".close");
 
+// Helper: YouTube URL → embed URL
+function convertToEmbed(url) {
+  if (!url.includes("youtu")) return url;
+
+  // Shorts → embed
+  if (url.includes("shorts")) {
+    const id = url.split("/shorts/")[1].split("?")[0];
+    return `https://www.youtube.com/embed/${id}`;
+  }
+
+  // Normale YouTube links
+  const id = url.split("v=")[1] || url.split("/").pop();
+  return `https://www.youtube.com/embed/${id}`;
+}
+
 projects.forEach(project => {
   const card = document.createElement("article");
   card.className = "project-card";
@@ -1421,11 +1457,21 @@ projects.forEach(project => {
   const videoWrapper = document.createElement("div");
   videoWrapper.className = "project-video";
 
-  const video = document.createElement("video");
-  video.src = project.videoSrc;
-  video.controls = true;
+  const isYouTube = project.videoSrc.includes("youtu");
 
-  videoWrapper.appendChild(video);
+  let videoElement;
+
+  if (isYouTube) {
+    videoElement = document.createElement("iframe");
+    videoElement.src = convertToEmbed(project.videoSrc);
+    videoElement.allowFullscreen = true;
+  } else {
+    videoElement = document.createElement("video");
+    videoElement.src = project.videoSrc;
+    videoElement.controls = true;
+  }
+
+  videoWrapper.appendChild(videoElement);
 
   const title = document.createElement("h2");
   title.className = "project-title";
@@ -1445,7 +1491,30 @@ projects.forEach(project => {
 
   readMore.addEventListener("click", () => {
     modal.style.display = "block";
-    modalVideo.src = project.videoSrc;
+
+    const isYT = project.videoSrc.includes("youtu");
+
+    // Verwijder oude iframe indien aanwezig
+    const oldIframe = document.getElementById("modalIframe");
+    if (oldIframe) oldIframe.remove();
+
+    if (isYT) {
+      modalVideo.style.display = "none";
+
+      const iframe = document.createElement("iframe");
+      iframe.id = "modalIframe";
+      iframe.src = convertToEmbed(project.videoSrc);
+      iframe.allowFullscreen = true;
+      iframe.style.width = "100%";
+      iframe.style.aspectRatio = "16/9";
+      iframe.style.borderRadius = "10px";
+
+      document.querySelector(".modal-video").appendChild(iframe);
+    } else {
+      modalVideo.style.display = "block";
+      modalVideo.src = project.videoSrc;
+    }
+
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.fullText;
     modalCodeLink.href = project.codeUrl;
@@ -1461,15 +1530,24 @@ projects.forEach(project => {
   projectsContainer.appendChild(card);
 });
 
-// Popup sluiten
+// ------------------------------
+// MODAL SLUITEN
+// ------------------------------
+
 closeBtn.onclick = () => {
   modal.style.display = "none";
   modalVideo.pause();
+
+  const iframe = document.getElementById("modalIframe");
+  if (iframe) iframe.remove();
 };
 
 window.onclick = (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
     modalVideo.pause();
+
+    const iframe = document.getElementById("modalIframe");
+    if (iframe) iframe.remove();
   }
 };
