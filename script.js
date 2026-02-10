@@ -94,7 +94,7 @@ Dit systeem kan dienen als basis voor signaleringssystemen zoals:
 • Waarschuwingslampen  
 • Reset‑ of bedieningssystemen  
   `,
-  codeUrl: "project code/project-2code/project-2code.ino"
+  codeUrl: "project code/project-1code/project-1code.ino"
 });
 projects.push({
   title: "Arduino Stoplichtsysteem met Schakelaar",
